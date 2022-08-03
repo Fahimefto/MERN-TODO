@@ -1,27 +1,18 @@
 const express = require("express");
+const controller = require("../controller/todos");
 const router = express.Router();
 
 //GET ALL
-router.get("/", (req, res) => {
-  res.json({ message: "GET all TODOS" });
-});
+router.get("/", controller.allTodos);
 
 //GET ONE
-router.get("/:id", (req, res) => {
-  res.json({ message: "GET TODOS by id" });
-});
+router.get("/:id", controller.todoById);
 
 //POST
-router.post("/", (req, res) => {
-  res.json({ message: "post all TODOS" });
-});
+router.post("/", controller.createTodos);
 //UPDATE
-router.patch("/:id", (req, res) => {
-  res.json({ message: "update all TODOS" });
-});
+router.patch("/:id", controller.updateById);
 //DELETE
-router.delete("/:id", (req, res) => {
-  res.json({ message: "delete all TODOS" });
-});
+router.delete("/:id", controller.deleteById);
 
 module.exports = router;

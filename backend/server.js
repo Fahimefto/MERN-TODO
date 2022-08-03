@@ -5,6 +5,8 @@ const todoRoute = require("./routes/todo");
 
 // express app
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 //routes
 app.use("/api/todos", todoRoute);
