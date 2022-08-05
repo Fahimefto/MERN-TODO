@@ -1,11 +1,15 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const todoRoute = require("./routes/todo");
 
 // express app
 const app = express();
+
+//middleware
 app.use(express.json());
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 
 //routes
